@@ -31,8 +31,13 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 <details>
 <summary>2. Installed and Configured OPNsense</summary>
 - Set up interface assignments
-- Configured static IPs for WAN and LAN
+- Configured static IPs for LAN1 and LAN2
 - Enabled DNS forwarder and firewall rules
+
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/OPNSenseInterfaceIPChanges.png)
+
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/OPNSenseInterfaceIPChanges.png)
+  
 </details>
 
 <details>
