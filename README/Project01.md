@@ -49,10 +49,7 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 
 ## 🖼️ Screenshots
 
-### DNS Zone Configuration
-![DNS Zone](./assets/dns-zone-setup.png)
-> Shows the `Portfolio.Lab` zone and A record for `server01.Portfolio.local`.
-
+<details>
 ### Firewall Rule in OPNsense
 ![Firewall Rules](./assets/firewall-rule-dns.png)
 > Rule allowing TCP/UDP on port 53 for internal LAN subnet.
@@ -61,6 +58,10 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 ![NSLookup Test](./assets/nslookup-success.png)
 > Client successfully resolves server domain, confirming DNS routing works.
 
+### DNS Zone Configuration
+![DNS Zone](./assets/dns-zone-setup.png)
+> Shows the `Portfolio.Lab` zone and A record for `server01.Portfolio.local`.
+> </details>
 ---
 
 ## 🧠 Takeaways
