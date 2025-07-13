@@ -1,138 +1,44 @@
-# 💼 Gregorie Haynes – IT Job Portfolio
+# 🧠 IT Portfolio – Gregorie Haynes
 
-Welcome to my professional IT portfolio! This repository showcases hands on labs, projects, and skills relevant to IT support, system administration, and networking. 
-
-## 🔗 Quick Links
-- [IT Support](#it-support)
-- [Networking](#networking)
-- [System Admin](#system-admin)
-- [Scripting & Tools](#scripting--tools)
-- [Version Control](#version-control)
-- [Live Environments](#live-environments)
-- [More Projects →](./projects/)
-
-## 🧰 Core Skills
-
-| Skill Area            | Technologies & Tools                            |
-|-----------------------|-------------------------------------------------|
-| IT Support            | Windows 10/11, Android, iOS, troubleshooting    |
-| Networking            | TCP/IP, DHCP, DNS, OPNsense, pfSense           |
-| System Admin          | Active Directory, Group Policy, VirtualBox     |
-| Scripting & Tools     | PowerShell, Bash, CMD, Remote Desktop          |
-| Version Control       | Git, GitHub                                     |
+Welcome to my professional IT portfolio. This repository showcases hands-on labs and projects in virtualized enterprise environments. The goal is to demonstrate my applied skills in system administration, networking, and IT support through scenario-driven labs.
 
 ---
 
-## 🛠️ IT Support
+## 💼 Core Skills & Competencies
 
-### Overview:
-IT support involves troubleshooting, providing customer service, and resolving technical issues related to operating systems, applications, and hardware. Below are some projects that showcase my IT support skills.
+<details>
+  <summary>Click to expand / collapse skills list</summary>
 
-### Projects:
-- **[Windows Troubleshooting Lab](./projects/windows-troubleshooting/)**
-  - Problem-solving, OS repair, and network issues.
-  - Tools used: Windows 10, CMD, PowerShell.
-  
-- **[Mobile Device Management](./projects/mobile-device-management/)**
-  - Supporting Android/iOS devices for troubleshooting, configuration, and remote management.
+- Network Segmentation & Subnetting
+- Windows Server Administration
+- DNS, DHCP, LDAP Services
+- VirtualBox Virtual Networking
+- Firewall Rule Configuration (e.g., OPNsense)
+- Windows 11 Client Configuration
+- Active Directory Fundamentals
+- User Access Management
+- Troubleshooting & Diagnostics
+- IT Documentation & Process Clarity
 
-### Key Tasks:
-- Installed and configured Windows OS.
-- Diagnosed hardware and software issues, utilizing remote desktop tools.
-
----
-
-## 🌐 Networking
-
-### Overview:
-Networking covers tasks such as setting up and maintaining networks, managing devices, and resolving network issues. Below are projects that demonstrate my networking capabilities.
-
-### Projects:
-- **[OPNsense Setup Project](./projects/opnsense-setup/)**
-  - Set up a secure virtualized network using OPNsense firewall.
-  - Tools used: OPNsense, VirtualBox, Networking knowledge.
-
-- **[Router Configuration](./projects/router-configuration/)**
-  - Configured home routers for IP addressing, security, and performance.
-  - Tools used: Router firmware.
-
-### Key Tasks:
-- Configured firewalls, managed routers, and ensured network security.
-- Used networking tools to monitor and troubleshoot network traffic.
+</details>
 
 ---
 
-## 🖥️ System Admin
+## 🧪 Labs
 
-### Overview:
-System administration involves maintaining and configuring servers, user management, and ensuring system uptime and security. Below are projects showing my skills in system administration.
-
-### Projects:
-- **[Active Directory Lab](./projects/active-directory-lab/)**
-  - Set up and managed an Active Directory environment.
-  - Tools used: Windows Server, Active Directory, Group Policies.
-
-- **[Virtual Machine Setup](./projects/virtual-machine-setup/)**
-  - Created and managed virtual machines for different environments.
-  - Tools used: VMware, Virtualbox
-
-### Key Tasks:
-- Managed user accounts, group policies, and server configurations.
-- Installed and configured Active Directory and other server-related services.
+| Lab # | Title | Summary | Link |
+|------|-------|---------|------|
+| 01 | **Subnetwork w/ DNS & Firewall** | VirtualBox lab with a segmented network: Win Server 2022 DNS, OPNsense router, and Win11 client. Includes firewall rules and connectivity validation. | [View Lab](labs/Lab01-Subnetwork-DNS/README.md) |
+| 02 | *(Coming Soon)* | Placeholder for upcoming projects (e.g., AD lab, GPO, syslog, Linux integration, etc.) | TBD |
 
 ---
 
-## 🔧 Scripting & Tools
+## 🛠️ Lab Setup Notes
 
-### Overview:
-Scripting allows automation of tasks, managing configurations, and handling repetitive system admin work. Here’s how I’ve applied scripting in various tasks.
+All labs are built using:
 
-### Projects:
-- **[PowerShell Automation Script](./projects/powershell-automation/)**
-  - Automated Windows system tasks, including user creation and file management.
-  - Tools used: PowerShell, GitHub.
+- 💻 **VirtualBox**
+- 🌐 **Internal Networking**
+- 🖥️ **Windows & OPNsense VMs**
 
-- **[Bash Scripting for Linux Setup](./projects/bash-scripting/)**
-  - Wrote scripts to automate Linux system configuration and user setup.
-  - Tools used: Bash, Git.
-
-### Key Tasks:
-- Wrote automation scripts to handle user and file management.
-- Improved system efficiency by automating tasks using PowerShell and Bash.
-
----
-
-## 💻 Version Control
-
-### Overview:
-Version control is essential for tracking changes in code, collaborating with teams, and maintaining project history.
-
-### Projects:
-- **[GitHub Portfolio Setup](./projects/github-portfolio/)**
-  - Used GitHub for managing and tracking changes in my IT projects.
-  - Tools used: Git, GitHub.
-
-- **[Collaboration Project on Git](./projects/collaboration-project/)**
-  - Contributed to an open-source project on GitHub using Git for version control.
-  - Tools used: Git, GitHub, Markdown.
-
-### Key Tasks:
-- Used Git for branching, merging, and managing project versions.
-- Created pull requests and worked collaboratively on open-source projects.
-
----
-
-## 🌐 Live Environments
-
-Explore my live environments and virtual labs.
-
-- **[Active Directory Live Environment](./projects/active-directory-live/)**
-- **[OPNsense Virtualized Network Lab](./projects/opnsense-live/)**
-
----
-
-## 📫 Contact
-
-📧 grengoshi@yahoo.com  
-📍 Bowling Green, KY  
-📄 [Résumé (PDF Link or repo if hosted)](#)
+Configuration files, screenshots, and diagrams are included per lab to provide clear documentation of design, troubleshooting steps, and testing outcomes.
