@@ -23,6 +23,7 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 <summary>1. Created Subnet Network in VirtualBox</summary>
 - Created two internal network adapters: `Int_Admin` and `Int_User`
 - Connected Server to `Int_Admin`, Client to `Int_User`, Router with two adapters
+  ![Subnet Network](./assets/Project01/AdminConfigurationNetworkVB.png)
 </details>
 
 <details>
@@ -50,6 +51,7 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 ## 🖼️ Screenshots
 
 <details>
+  
 ### Firewall Rule in OPNsense
 ![Firewall Rules](./assets/firewall-rule-dns.png)
 > Rule allowing TCP/UDP on port 53 for internal LAN subnet.
