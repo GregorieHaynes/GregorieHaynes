@@ -24,6 +24,7 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 - Created two internal network adapters: `Int_Admin` and `Int_User`
 - Connected Server to `Int_Admin`, Client to `Int_User`, Router with two adapters
   ![Subnet Network](./assets/AdminConfigurationNetworkVB.png)
+  
 </details>
 
 <details>
