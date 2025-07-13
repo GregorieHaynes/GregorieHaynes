@@ -54,16 +54,30 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 <details>
 <summary>3. Installed Windows Server 2022 and DNS Role</summary>
 - Promoted to domain controller
+
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/settingupDomainonAD.png)
+  
 - Configured DNS zone and records
-- Verified with `nslookup` and `ping`
+
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/DNSisSetupfor%20A%20Record.png)
+  
+- Verified with `ping`
+  
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/PingWorksonsame%20subnet.png)
+  
 </details>
 
 <details>
-<summary>4. Firewall Rule Testing</summary>
-- Created rules to allow:
-  - TCP/UDP 53 for DNS
-  - TCP 389 for LDAP
-- Tested from Win11 client using `nslookup`
+<summary>4. Setting up User11 and AD Connecting</summary>
+  
+- Created Win11 User in AD
+  
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/creating_User.png)
+  
+- Connected Win11 to AD
+
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/loggingintoaccount.png)
+  
 </details>
 
 ## 🖼️ Screenshots
