@@ -28,7 +28,7 @@ Welcome to my professional IT portfolio. This repository showcases hands-on labs
 
 | Lab # | Title | Summary | Link |
 |------|-------|---------|------|
-| 01 | **Subnetwork w/ DNS & Firewall** | VirtualBox lab with a segmented network: Win Server 2022 DNS, OPNsense router, and Win11 client. Includes firewall rules and connectivity validation. | [View Lab](README/Project01.md) |
+| 01 | **Subnetwork w/ DNS & Firewall** | VirtualBox lab with a segmented network: Win Server 2022 DNS, OPNsense router, and Win11 client. Includes firewall rules and connectivity validation. | [View Lab](/README/Project01.md) |
 | 02 | *(Coming Soon)* | Placeholder for upcoming projects (e.g., AD lab, GPO, syslog, Linux integration, etc.) | TBD |
 
 ---
