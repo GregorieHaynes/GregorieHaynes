@@ -54,7 +54,7 @@ Networking covers tasks such as setting up and maintaining networks, managing de
 
 - **[Router Configuration](./projects/router-configuration/)**
   - Configured home routers for IP addressing, security, and performance.
-  - Tools used: Cisco Packet Tracer, router firmware.
+  - Tools used: Router firmware.
 
 ### Key Tasks:
 - Configured firewalls, managed routers, and ensured network security.
@@ -74,7 +74,7 @@ System administration involves maintaining and configuring servers, user managem
 
 - **[Virtual Machine Setup](./projects/virtual-machine-setup/)**
   - Created and managed virtual machines for different environments.
-  - Tools used: VMware, Hyper-V.
+  - Tools used: VMware, Virtualbox
 
 ### Key Tasks:
 - Managed user accounts, group policies, and server configurations.
