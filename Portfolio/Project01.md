@@ -24,11 +24,11 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
   
 - Created two internal network adapters: `Int_Admin` and `Int_User`
   
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/AdminConfigurationNetworkVB.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/AdminConfigurationNetworkVB.png)
   
 - Connected Server to `Int_Admin`, Client to `Int_User`, Router with two adapters
 
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/SettingUpRouter.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/SettingUpRouter.png)
   
   
 </details>
@@ -38,15 +38,15 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
   
 - Set up interface assignments
 
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/OPNSenseInterfaceIPChanges.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/OPNSenseInterfaceIPChanges.png)
 
 - Configured static IPs for LAN1 and LAN2
   
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/OPNSenseInterfaceIPChanges2.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/OPNSenseInterfaceIPChanges2.png)
 
 - Setup firewall rules for LAN1 & LAN2
 
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/opnsensefirewallconfigforfirewall.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/opnsensefirewallconfigforfirewall.png)
 
   
 </details>
@@ -55,15 +55,15 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 <summary>3. Installed Windows Server 2022 and DNS Role</summary>
 - Promoted to domain controller
 
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/settingupDomainonAD.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/settingupDomainonAD.png)
   
 - Configured DNS zone and records
 
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/DNSisSetupfor%20A%20Record.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/Portfolio/asset-project01/DNSisSetupfor%20A%20Record.png)
   
 - Verified with `ping`
   
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/PingWorksonsame%20subnet.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/Portfolio/asset-project01/PingWorksonsame%20subnet.png)
   
 </details>
 
@@ -72,11 +72,11 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
   
 - Created Win11 User in AD
   
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/creating_User.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/creating_User.png)
   
 - Connected Win11 to AD
 
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/README/assets/Project01/loggingintoaccount.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/loggingintoaccount.png)
   
 </details>
 
