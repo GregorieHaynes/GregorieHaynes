@@ -87,12 +87,16 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 ### Logging Into AD Issues
 ![AD Error](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/IssuesLoggingIntoAD.png)
 > Error occured logging into AD server.
-![Log File](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/IssuesLoggingIntoAD.png)
+> 
+![Log File](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/ProofFireWallIsBlockingAD.png)
 > The cause was the firewall blocking LDAP, I went into root and grep'ed the filter logs. I used cat latest.log | grep 192.168.0.66 | grep 389
+> 
 ![Solution](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/opnsensefirewallconfigforfirewall.png)
 > I setup an exception for 192.168.0.66 to talk to 192.168.0.2 and specified IPv4.
+> 
 ![Correction](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/SuccessLoggingIntoADWithUser.png)
-> I was able to successfully login to AD server. 
+> I was able to successfully log into the AD server.
+> 
  
 
 ### Win11 Client Test
