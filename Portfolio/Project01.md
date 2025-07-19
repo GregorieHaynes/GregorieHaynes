@@ -80,20 +80,27 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
   
 </details>
 
-## 🖼️ Screenshots
+## 🖼️ Issues and Resolution
 
 <details>
   
-### Firewall Rule in OPNsense
-![Firewall Rules](./assets/firewall-rule-dns.png)
-> Rule allowing TCP/UDP on port 53 for internal LAN subnet.
+### Logging Into AD Issues
+![AD Error](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/IssuesLoggingIntoAD.png)
+> Error occured logging into AD server.
+![Log File](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/IssuesLoggingIntoAD.png)
+> The cause was the firewall blocking LDAP, I went into root and grep'ed the filter logs. I used cat latest.log | grep 192.168.0.66 | grep 389
+![Solution](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/opnsensefirewallconfigforfirewall.png)
+> I setup an exception for 192.168.0.66 to talk to 192.168.0.2 and specified IPv4.
+![Correction](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/SuccessLoggingIntoADWithUser.png)
+> I was able to successfully login to AD server. 
+ 
 
 ### Win11 Client Test
-![NSLookup Test](./assets/nslookup-success.png)
+![work in progress](./assets/nslookup-success.png)
 > Client successfully resolves server domain, confirming DNS routing works.
 
 ### DNS Zone Configuration
-![DNS Zone](./assets/dns-zone-setup.png)
+![work in progress](./assets/dns-zone-setup.png)
 > Shows the `Portfolio.Lab` zone and A record for `server01.Portfolio.local`.
 > </details>
 ---
