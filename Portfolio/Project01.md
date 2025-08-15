@@ -59,11 +59,11 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
   
 - Configured DNS zone and records
 
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/Portfolio/asset-project01/DNSisSetupfor%20A%20Record.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/DNSisSetupfor%20A%20Record.png)
   
 - Verified with `ping`
   
-  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/Portfolio/asset-project01/PingWorksonsame%20subnet.png)
+  ![Subnet Network](https://raw.githubusercontent.com/GregorieHaynes/GregorieHaynes/main/Portfolio/asset-project01/PingWorksonsame%20subnet.png)
   
 </details>
 
