@@ -99,12 +99,12 @@ This lab demonstrates the creation of a segmented virtual network using VirtualB
 > 
  
 
-### Win11 Client Test
-![work in progress](./assets/nslookup-success.png)
-> Client successfully resolves server domain, confirming DNS routing works.
+### *(Coming Soon)* 
+![work in progress](*(Coming Soon)* )
+> *(Coming Soon)* 
 
-### DNS Zone Configuration
-![work in progress](./assets/dns-zone-setup.png)
+### *(Coming Soon)* 
+![work in progress](*(Coming Soon)*)
 > Shows the `Portfolio.Lab` zone and A record for `server01.Portfolio.local`.
 > </details>
 ---
