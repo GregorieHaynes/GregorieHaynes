@@ -1,11 +1,10 @@
-
 # Lab 2: Wazuh SIEM Tuning, Detection and Validation
 
 ## Overview
 
 Lab 1 showed I could build a network. This lab covers the work a SOC analyst does day to day: reading alerts, deciding what is noise and what is not, and being able to explain why.
 
-I deployed a Wazuh SIEM and ran it against my own Windows 11 machine. I investigated alerts, tuned out the noisy ones without turning off the detections underneath, found and fixed two critical vulnerabilities, and ran controlled activity to confirm the tuning had not blinded the system.
+I deployed a Wazuh SIEM and ran it against my own Windows 11 machine. I investigated alerts, tuned out the noisy ones without turning off the detections underneath, found and fixed two critical vulnerabilities, built a custom detection rule to close a real coverage gap, and ran controlled activity to confirm the tuning had not blinded the system.
 
 I used AI tools while building this lab. The troubleshooting, the exception logic, and the decisions about what was safe to suppress are mine, and the reasoning for each is documented below.
 
@@ -66,15 +65,15 @@ Wazuh's vulnerability detection flagged two critical findings on my own machine.
 
 ### Finding 2: Visual Studio Code, CVE-2026-47281 (CVSS 9.6)
 
-**What it is:** [One or two plain-language sentences on what this elevation-of-privilege flaw allows.]
+**What it is:** A privilege-escalation flaw in Visual Studio Code, published by Microsoft in June 2026. The advisory describes it as improper input validation that lets an unauthorized attacker elevate privileges over a network. The CVSS vector shows it needs no prior privileges but does need user interaction, and the changed scope means a successful attack is not limited to VS Code itself and can also affect the local system, including files and settings. Versions before the 1.123.x security fix were affected.
 
 | Field | Detail |
 |---|---|
 | CVE | CVE-2026-47281 |
 | CVSS | 9.6 |
 | How found | Wazuh vulnerability detection |
-| Impact | [One sentence] |
-| Remediation | Updated VS Code to a patched version ([version]) |
+| Impact | Network-reachable privilege escalation (user interaction required) that could affect the local system beyond VS Code, including files and settings |
+| Remediation | Updated VS Code to version 1.138.0, which is newer than the fixed 1.123.x release |
 | Verification | Re-scanned; finding no longer reported |
 
 ![CVE-2026-47281 detected by Wazuh](./images/03a-cve-vscode-wazuh.png)
@@ -169,7 +168,73 @@ I generated benign bad-password logon failures to test log ingestion and confirm
 
 ## Custom detection rule
 
-In progress. The goal is a custom rule that makes the system more sensitive to specific activity I care about, instead of relying only on default rule behavior.
+### Objective
+
+Extend PowerShell network detection to cover UDP. The tuning work above reduced alert noise; this is the first piece of custom detection engineering in the lab — finding a gap in default coverage and closing it with a new rule.
+
+### Detection Gap
+
+Wazuh already has rule 92101 for PowerShell network connections over TCP. It is TCP-specific, so it does not match PowerShell communicating over UDP. Sysmon already logs these connections as Event ID 3 (network connection detected), so the telemetry existed; there was simply no rule matching PowerShell-over-UDP against it.
+
+### Implementation
+
+| Field | Detail |
+|---|---|
+| Rule ID | 100108 |
+| Alert level | 3 |
+| Location | `/var/ossec/etc/rules/local_rules.xml` |
+| Event source | Sysmon Event ID 3 (`sysmon_event3` group) |
+| Conditions | Process is `powershell.exe`, protocol is UDP |
+| Description | PowerShell process communicating over UDP |
+
+The rule matches the `sysmon_event3` group directly rather than extending TCP rule 92101, so the two rules are independent of each other.
+
+```xml
+<rule id="100108" level="3">
+  <if_group>sysmon_event3</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)\\powershell\.exe$</field>
+  <field name="win.eventdata.protocol">^udp$</field>
+  <description>PowerShell process communicating over UDP</description>
+  <group>sysmon,windows,powershell,network_connection,</group>
+</rule>
+```
+
+**My role:** I identified the gap, defined the behavior I wanted the rule to catch, directed the troubleshooting, evaluated the rule design, and validated the result against a live event. AI assisted with drafting the rule syntax.
+
+### Validation Procedure
+
+On the monitored agent (`DESKTOP-ALGS6LP`, agent ID 001), I used PowerShell to send a controlled UDP datagram to `8.8.8.8:443`:
+
+```powershell
+$udp = [System.Net.Sockets.UdpClient]::new()
+$data = [System.Text.Encoding]::UTF8.GetBytes("Wazuh UDP detection test")
+[void]$udp.Send($data, $data.Length, "8.8.8.8", 443)
+$udp.Dispose()
+```
+
+Sysmon logged the connection as Event ID 3. The event came in through the Windows EventChannel, was decoded by `windows_eventchannel`, reached `wazuh.manager`, and was indexed as an alert.
+
+### Evidence
+
+![Rule 100108 alert](./images/07-powershell-udp-alert.png)
+*Rule 100108 firing at level 3 on a live Sysmon Event ID 3 event.*
+
+The screenshot shows the rule ID, description, level, groups, agent, location (`EventChannel`), and decoder. Note that `100108` is the Wazuh rule ID and `3` is the Sysmon event ID — unrelated numbers that happen to look similar.
+
+### Results
+
+A real Sysmon network-connection event from PowerShell over UDP reached Wazuh, matched custom rule 100108, and generated an indexed level 3 alert.
+
+### Limitations
+
+- The rule matches PowerShell UDP connections in general. It does not yet separate external destinations from internal ones. The test used a public address, but the rule is not restricted to external traffic.
+- One successful test shows the event reached Wazuh and matched the rule. It does not show the rule catches every relevant UDP-based threat.
+- Level 3 is the severity I configured, not a verdict that the connection is malicious.
+- I have not yet measured false positives or tested non-matching traffic.
+
+### Future Development
+
+This rule is a starting point, not a finished product. Refining it — separating internal from external destinations, testing matching and non-matching traffic, reducing false positives — is planned as part of the SOAR project in Lab 3.
 
 ---
 
@@ -191,9 +256,9 @@ The two CVEs I found were the clearest lesson in the value of visibility. I didn
 
 The most frustrating part of the lab was noise. Adding Sysmon gave me far more visibility into process activity, but it also multiplied the alert volume significantly. Working through that taught me how to investigate a noisy rule properly instead of just suppressing it: find what's actually driving the volume, confirm the behavior is legitimate, and scope the exception narrowly enough that it doesn't blind the system to something that actually matters. I used a Painless script to identify which processes were generating the most alerts, which is what led directly to the Chrome exception documented above. I've brought the noise down from roughly 5,600 to roughly 2,400 alerts a day, and I expect to keep tuning it further.
 
-Right now I'm building a SOAR project, using AI-assisted coding, to automate and speed up how I create and manage exception rules for this lab. The next step beyond that is writing custom detection logic to make the system more sensitive to the specific activity I actually care about, rather than relying only on default rule behavior. That work is still in progress.
+Right now I'm building a SOAR project, using AI-assisted coding, to automate and speed up how I create and manage exception rules for this lab. The UDP detection rule above is my first piece of custom detection engineering, and refining it is the next step: separating internal from external destinations and testing it against matching and non-matching traffic.
 
-Overall, this lab is where I actually learned what the job looks like day to day: investigating, tuning, validating, and documenting why each decision was safe. I'm looking forward to applying that in a real SOC environment.
+Overall, this lab is where I actually learned what the job looks like day to day: investigating, tuning, detecting, validating, and documenting why each decision was safe. I'm looking forward to applying that in a real SOC environment.
 
 ---
 
